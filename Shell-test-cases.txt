@@ -1,0 +1,35 @@
+ls -l 								/* sample code does this much */
+ls -lR /usr > trashfile                 			/* will work, but generates errors to terminal for directories you don't have permission to see...*/
+history								/* shows the last two commands run */
+echo z > testfile						/* build a test file */
+echo a >> testfile
+echo c >> testfile
+sort < testfile                     				/* shows lines sorted */
+sort < testfile > /tmp/testfile 				/* save sorted file */
+cd /tmp								/* go to system tmp directory */
+pwd								/* where am i, don't need to implement as a builtin since linux provides it */
+cd								/* go back to HOME since no argument */
+pwd								/* where am i, don't need to implement as a builtin since linux provides it */
+echo j >> /tmp/testfile						/* add a new line */
+cp /tmp/testfile testfile2
+diff testfile testfile2             				/* shows the new line addition */
+sleep 400 &
+ps -x | grep sleep						/* shows the sleep running in the background*/
+dd if=/dev/zero of=big count=1 bs=200M &  			/* create a HUGE file in the background,  note: rm big  often   */
+du -sh .							/* how big is the current directory?  it will grow */
+history								/* shows the last 10 commands run */
+cat testfile2 | wc -l						/* should show a 4 for the lines containing z,a,c,j */
+who | wc -l > users						/* show show how many users are logged into the system in the file */
+who > testusers							 
+cat < testusers | wc -l > users2				/* show show how many users are logged into the system in the file */
+diff users users2						/* same number of users */
+top								/* do a ctr-C to kill top but not the program */
+/* kill your shell with the SIGUSR1 at some point to invoke your debug function to see the last command an where you were on the system */
+
+/* signal EOF at the terminal with ctl-d and your program exits */
+
+/* some simple errors conditions */
+ls > 								
+cat testusers |
+sort < 
+

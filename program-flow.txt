@@ -1,0 +1,24 @@
+Work on program flow.
+Shell Starts
+Input prompt is created and program waits for user input.
+Input comes from user.
+Split up input based on pipes.
+if command is cd
+    change directory
+else if command is history
+    print history
+else 
+    store line into history
+    if pipes exists (aka. cmds[1] != NULL)
+    for number of piped commands:
+        fork_and_chain():
+            create new process
+            if given command has redirection
+                redirect_and_exec():
+                  check for input or output redirection:
+                    if input 
+                        open file descriptor and set up input
+                    if output
+                        is it > or >>?
+                        open file descriptor based on overwrite or append
+                    exec command now with possible input and output rediections set up
